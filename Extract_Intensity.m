@@ -15,11 +15,12 @@ end
 Matrix2 = Matrix2{1};
 
 placementCriteria = Matrix2(1:4);
-
-if(strcmpi(placementCriteria, '4to4')||strcmpi(placementCriteria, '4to9')||strcmpi(placementCriteria, '4to25')||strcmpi(placementCriteria, '4to16'))
-    incrementVal = 2;
+fprintf('Detected placementCriteria: %s\n', placementCriteria);
+if(strcmpi(placementCriteria, '4to4')||strcmpi(placementCriteria, '4to9')||strcmpi(placementCriteria, '4to2')||strcmpi(placementCriteria, '4to1'))
+    incrementVal = 1;
+    fprintf('This matrix size extension part was executed. placementCriteria: %s\n', placementCriteria);
     Matrix_Size = 2*Matrix_Size;
-    next_entry = 2*next_entry;
+    next_entry = 1;
 else
     incrementVal = 1;
 end
@@ -35,11 +36,12 @@ Row = 1;
 Column = 1;
 for i = 1:Matrix_Size
     for j = entry1:incrementVal:(entry1+Matrix_Size-1)
-        if(incrementVal == 1)
+       % if(incrementVal == 1)
             Cell0(Row,Column) = Matrix5(j);
-        else
-            Cell0(Row,Column) = (Matrix5(j)+Matrix5(j+1))/2;
-        end
+       % else
+       %     fprintf('Name of the file that was opened is: %s\n', filename);
+       %     Cell0(Row,Column) = (Matrix5(j)+Matrix5(j+1))/2;
+       % end
         Column = Column + 1;
     end
     entry1 = entry1 + Matrix_Size-1 +next_entry;
